@@ -11,32 +11,60 @@ public class School implements Service {
 
     @Override
     public Student findByName(String studentName) {
+        for (int i = 0; i < students.length; i++) {
+            if (students[i].getName().equals(studentName)) {
+                return students[i];
+            }
+        }
         return null;
     }
 
     @Override
     public void getAllStudents() {
-
+        for (Student student:students) {
+            System.out.println(student);
+        }
     }
 
     @Override
     public Student[] getAllGirls() {
-        return new Student[0];
+        Student[] girls = new Student[students.length];
+        for (int j = 0; j < students.length; j++) {
+            if (students[j].getGender().equals("Ж")){
+                girls[j] = students[j];
+            }
+        }
+        return girls;
     }
 
     @Override
     public void getMaxEstimation() {
-
+        int max = students[0].getEstimation();
+        for (Student a:students) {
+            if(a.getEstimation() > max){
+                max = a.getEstimation();
+            }
+        }
+        System.out.println(max);
     }
 
     @Override
     public double getAverageEstimation() {
-        return 0;
+        double avg = 0;
+        for (Student s: students) {
+            avg += s.getEstimation();
+
+        }
+        return avg/students.length;
     }
 
     @Override
     public void getAverageAge() {
-
+        double ave = 0;
+        for (Student student:students) {
+            ave += student.getAge();
+        }
+        System.out.println(ave/students.length);
     }
 
     public String getSchoolName() {
@@ -54,6 +82,7 @@ public class School implements Service {
     public void setStudents(Student[] students) {
         this.students = students;
     }
+
 
     @Override
     public String toString() {

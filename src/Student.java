@@ -66,11 +66,11 @@ public class Student {
     @Override
     public String toString() {
         return "Student: " +
-                "name: " + name+
-                "surname: " + surname+
-                "age: " + age +
-                "gender: " + gender+
-                "email: " + email+
-                "estimation: " + estimation;
+                " name: " + name+
+                " surname: " + surname+
+                " age: " + age +
+                " gender: " + gender+
+                " email: " + email+
+                " estimation: " + estimation;
     }
 }
